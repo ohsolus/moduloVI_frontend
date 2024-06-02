@@ -19,7 +19,7 @@ function Edit() {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/offert", offert);
+      await axios.post("https://moduloiv-backend.onrender.com/offert", offert);
       navigate("/");
     } catch (err) {
       console.log(err);

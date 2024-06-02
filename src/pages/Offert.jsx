@@ -9,7 +9,9 @@ function Offert() {
   useEffect(() => {
     const fetchAllOfferts = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/offert");
+        const res = await axios.get(
+          "https://moduloiv-backend.onrender.com/offert"
+        );
         setOffert(res.data);
         console.log(res);
       } catch (err) {
@@ -21,7 +23,9 @@ function Offert() {
 
   const handleDelete = async (idOfferts) => {
     try {
-      await axios.delete("http://localhost:8800/offert/" + idOfferts);
+      await axios.delete(
+        "https://moduloiv-backend.onrender.com/offert/" + idOfferts
+      );
       window.location.reload();
     } catch (err) {
       console.log(err);

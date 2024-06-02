@@ -22,7 +22,10 @@ function Update() {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:8800/offert/" + offertid, offert);
+      await axios.put(
+        "https://moduloiv-backend.onrender.com/offert/" + offertid,
+        offert
+      );
       navigate("/");
     } catch (err) {
       console.log(err);
