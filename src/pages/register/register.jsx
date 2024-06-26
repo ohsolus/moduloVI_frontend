@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Edit() {
-  const [offert, setOffert] = useState({
-    tittle: "",
-    description: "",
+function Register() {
+  const [users, setUsers] = useState({
+    nombre: "",
+    email: "",
   });
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setOffert((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setUsers((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  console.log(offert);
+  console.log(users);
 
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://moduloiv-backend.onrender.com/offert", offert);
+      await axios.post("http://localhost:8800");
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -31,19 +31,19 @@ function Edit() {
       <h1>Nueva Oferta</h1>
       <input
         type="text"
-        placeholder="title"
+        placeholder="nombre"
         onChange={handleChange}
-        name="tittle"
+        name="nombre"
       />
       <input
         type="text"
-        placeholder="description"
+        placeholder="email"
         onChange={handleChange}
-        name="description"
+        name="email"
       />
       <button onClick={handleClick}>Agregar</button>
     </div>
   );
 }
 
-export default Edit;
+export default Register;
